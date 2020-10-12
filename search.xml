@@ -1,52 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Debian-8-安装Nginx最新版本</title>
-    <url>/2020/10/10/Debian-8-%E5%AE%89%E8%A3%85Nginx%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<p>一、清理残余的旧版本</p>
-<blockquote>
-<p>apt-get remove nginx nginx-common nginx-full</p>
-</blockquote>
-<p>二、安装nginx PGP签名文件</p>
-<blockquote>
-<p>wget <a href="http://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">http://nginx.org/keys/nginx_signing.key</a><br>apt-key add nginx_signing.key</p>
-</blockquote>
-<p>三、使用sudo修改source源</p>
-<blockquote>
-<p>codename参数根据os来选择：<a href="https://nginx.org/en/linux_packages.html#distributions" target="_blank" rel="noopener">https://nginx.org/en/linux_packages.html#distributions</a><br>比如我的OS是Debian 8 jessie，codename参数即为jessie<br>编辑/etc/apt/source.list文件<br>vim /etc/apt/source.list<br>在文件末追加以下：<br>deb <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> [codename] nginx<br>deb-src <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> [codename] nginx<br>eg:<br>deb <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> jessie nginx<br>deb-src <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> jessie nginx</p>
-</blockquote>
-<p>四、更新软件源并安装nginx</p>
-<blockquote>
-<p>apt-get update<br>sudo apt-get install nginx</p>
-</blockquote>
-<p>五、查看nginx版本号</p>
-<blockquote>
-<p>nginx -v</p>
-</blockquote>
-<p>六、nginx启动</p>
-<blockquote>
-<p>service nginx start<br>service nginx restart<br>service nginx reload<br>service nginx stop</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>SSH 三步解决免密登录</title>
-    <url>/2020/10/10/SSH%20%E4%B8%89%E6%AD%A5%E8%A7%A3%E5%86%B3%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/</url>
-    <content><![CDATA[<p>1.客户端生成公私钥</p>
-<blockquote>
-<p>本地客户端生成公私钥：（一路回车默认即可）<br>ssh-keygen<br>上面这个命令会在用户目录.ssh文件夹下创建公私钥<br>cd ~/.ssh<br>ls<br>下创建两个密钥：<br>id_rsa （私钥）<br>id_rsa.pub (公钥)</p>
-</blockquote>
-<p>2.上传公钥到服务器</p>
-<blockquote>
-<p>这里测试用的服务器地址为：192.168.235.22<br>用户：root<br>ssh-copy-id -i  ~/.ssh/id_rsa.pub <a href="mailto:root@192.168.235.22">root@192.168.235.22</a><br>上面这条命令是写到服务器上的ssh目录下去了<br>cd ~/.ssh<br>vim authorized_keys<br>可以看到客户端写入到服务器的 id_rsa.pub （公钥）内容。</p>
-</blockquote>
-<p>3.测试免密登录</p>
-<blockquote>
-<p>客户端通过ssh连接远程服务器，就可以免密登录了。<br>ssh <a href="mailto:root@192.168.235.22">root@192.168.235.22</a></p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
     <title>VPS搭建自己的的Hexo博客</title>
     <url>/2020/10/10/VPS%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<ol>
@@ -72,6 +26,52 @@
 <p><strong>文章删除。</strong></p>
 <blockquote>
 <p>目录/source/_posts下删除相应的文章</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>SSH 三步解决免密登录</title>
+    <url>/2020/10/10/SSH%20%E4%B8%89%E6%AD%A5%E8%A7%A3%E5%86%B3%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/</url>
+    <content><![CDATA[<p>1.客户端生成公私钥</p>
+<blockquote>
+<p>本地客户端生成公私钥：（一路回车默认即可）<br>ssh-keygen<br>上面这个命令会在用户目录.ssh文件夹下创建公私钥<br>cd ~/.ssh<br>ls<br>下创建两个密钥：<br>id_rsa （私钥）<br>id_rsa.pub (公钥)</p>
+</blockquote>
+<p>2.上传公钥到服务器</p>
+<blockquote>
+<p>这里测试用的服务器地址为：192.168.235.22<br>用户：root<br>ssh-copy-id -i  ~/.ssh/id_rsa.pub <a href="mailto:root@192.168.235.22">root@192.168.235.22</a><br>上面这条命令是写到服务器上的ssh目录下去了<br>cd ~/.ssh<br>vim authorized_keys<br>可以看到客户端写入到服务器的 id_rsa.pub （公钥）内容。</p>
+</blockquote>
+<p>3.测试免密登录</p>
+<blockquote>
+<p>客户端通过ssh连接远程服务器，就可以免密登录了。<br>ssh <a href="mailto:root@192.168.235.22">root@192.168.235.22</a></p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Debian-8-安装Nginx最新版本</title>
+    <url>/2020/10/10/Debian-8-%E5%AE%89%E8%A3%85Nginx%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<p>一、清理残余的旧版本</p>
+<blockquote>
+<p>apt-get remove nginx nginx-common nginx-full</p>
+</blockquote>
+<p>二、安装nginx PGP签名文件</p>
+<blockquote>
+<p>wget <a href="http://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">http://nginx.org/keys/nginx_signing.key</a><br>apt-key add nginx_signing.key</p>
+</blockquote>
+<p>三、使用sudo修改source源</p>
+<blockquote>
+<p>codename参数根据os来选择：<a href="https://nginx.org/en/linux_packages.html#distributions" target="_blank" rel="noopener">https://nginx.org/en/linux_packages.html#distributions</a><br>比如我的OS是Debian 8 jessie，codename参数即为jessie<br>编辑/etc/apt/source.list文件<br>vim /etc/apt/source.list<br>在文件末追加以下：<br>deb <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> [codename] nginx<br>deb-src <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> [codename] nginx<br>eg:<br>deb <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> jessie nginx<br>deb-src <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> jessie nginx</p>
+</blockquote>
+<p>四、更新软件源并安装nginx</p>
+<blockquote>
+<p>apt-get update<br>sudo apt-get install nginx</p>
+</blockquote>
+<p>五、查看nginx版本号</p>
+<blockquote>
+<p>nginx -v</p>
+</blockquote>
+<p>六、nginx启动</p>
+<blockquote>
+<p>service nginx start<br>service nginx restart<br>service nginx reload<br>service nginx stop</p>
 </blockquote>
 ]]></content>
   </entry>
