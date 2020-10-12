@@ -50,8 +50,7 @@
     <title>VPS搭建自己的的Hexo博客</title>
     <url>/2020/10/10/VPS%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<ol>
-<li>博客的架构<img src="/images/a.png" width="80%" height="60%">
-整个流程就是本地将 *.md 渲染成静态文件，然后Git推送到服务器的repository,服务器再通过 git-hooks 同步网站根目录。</li>
+<li>博客的架构<br><img src="a.png" alt=""><br>整个流程就是本地将 *.md 渲染成静态文件，然后Git推送到服务器的repository,服务器再通过 git-hooks 同步网站根目录。</li>
 <li>整个搭建流程<br>第一部分: 服务器环境搭建，包括安装 Git 、NodeJS、Nginx配置 、创建 git 用户<br>第二部分: 本地Hexo初始化， 包括安装 NodeJS 、hexo-cli, 生成本地静态网站<br>第三部分: 使用Git自动化部署发布博客</li>
 <li>服务器环境搭建</li>
 </ol>
