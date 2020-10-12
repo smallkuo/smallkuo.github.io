@@ -227,9 +227,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -329,32 +363,21 @@
       
         
           
-            <p>一、清理残余的旧版本</p>
-<blockquote>
-<p>apt-get remove nginx nginx-common nginx-full</p>
-</blockquote>
-<p>二、安装nginx PGP签名文件</p>
-<blockquote>
-<p>wget <a href="http://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">http://nginx.org/keys/nginx_signing.key</a><br>apt-key add nginx_signing.key</p>
-</blockquote>
-<p>三、使用sudo修改source源</p>
-<blockquote>
-<p>codename参数根据os来选择：<a href="https://nginx.org/en/linux_packages.html#distributions" target="_blank" rel="noopener">https://nginx.org/en/linux_packages.html#distributions</a><br>比如我的OS是Debian 8 jessie，codename参数即为jessie<br>编辑/etc/apt/source.list文件<br>vim /etc/apt/source.list<br>在文件末追加以下：<br>deb <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> [codename] nginx<br>deb-src <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> [codename] nginx<br>eg:<br>deb <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> jessie nginx<br>deb-src <a href="http://nginx.org/packages/mainline/debian/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/debian/</a> jessie nginx</p>
-</blockquote>
-<p>四、更新软件源并安装nginx</p>
-<blockquote>
-<p>apt-get update<br>sudo apt-get install nginx</p>
-</blockquote>
-<p>五、查看nginx版本号</p>
-<blockquote>
-<p>nginx -v</p>
-</blockquote>
-<p>六、nginx启动</p>
-<blockquote>
-<p>service nginx start<br>service nginx restart<br>service nginx reload<br>service nginx stop</p>
-</blockquote>
+          一、清理残余的旧版本
 
-          
+apt-get remove nginx nginx-common nginx-full
+
+二、安装nginx PGP签名文件
+
+wget http://nginx.org/keys/nginx_signing.keyapt-key add nginx_signing.key
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/10/10/Debian-8-%E5%AE%89%E8%A3%85Nginx%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -472,20 +495,21 @@
       
         
           
-            <p>1.客户端生成公私钥</p>
-<blockquote>
-<p>本地客户端生成公私钥：（一路回车默认即可）<br>ssh-keygen<br>上面这个命令会在用户目录.ssh文件夹下创建公私钥<br>cd ~/.ssh<br>ls<br>下创建两个密钥：<br>id_rsa （私钥）<br>id_rsa.pub (公钥)</p>
-</blockquote>
-<p>2.上传公钥到服务器</p>
-<blockquote>
-<p>这里测试用的服务器地址为：192.168.235.22<br>用户：root<br>ssh-copy-id -i  ~/.ssh/id_rsa.pub <a href="mailto:root@192.168.235.22">root@192.168.235.22</a><br>上面这条命令是写到服务器上的ssh目录下去了<br>cd ~/.ssh<br>vim authorized_keys<br>可以看到客户端写入到服务器的 id_rsa.pub （公钥）内容。</p>
-</blockquote>
-<p>3.测试免密登录</p>
-<blockquote>
-<p>客户端通过ssh连接远程服务器，就可以免密登录了。<br>ssh <a href="mailto:root@192.168.235.22">root@192.168.235.22</a></p>
-</blockquote>
+          1.客户端生成公私钥
 
-          
+本地客户端生成公私钥：（一路回车默认即可）ssh-keygen上面这个命令会在用户目录.ssh文件夹下创建公私钥cd ~/.sshls下创建两个密钥：id_rsa （私钥）id_rsa.pub (公钥)
+
+2.上传公钥到服务器
+
+这里测试用的服务器地址为：192.168.23
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/10/10/SSH%20%E4%B8%89%E6%AD%A5%E8%A7%A3%E5%86%B3%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -603,33 +627,18 @@
       
         
           
-            <ol>
-<li>博客的架构<img src="/images/a.png" width="80%" height="60%">
-整个流程就是本地将 *.md 渲染成静态文件，然后Git推送到服务器的repository,服务器再通过 git-hooks 同步网站根目录。</li>
-<li>整个搭建流程<br>第一部分: 服务器环境搭建，包括安装 Git 、NodeJS、Nginx配置 、创建 git 用户<br>第二部分: 本地Hexo初始化， 包括安装 NodeJS 、hexo-cli, 生成本地静态网站<br>第三部分: 使用Git自动化部署发布博客</li>
-<li>服务器环境搭建</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">3-1.安装Git和NodeJS</span><br><span class="line">apt  update</span><br><span class="line">apt install git</span><br><span class="line">wget https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v10.15.1&#x2F;node-v10.15.1-linux-x64.tar.gz</span><br><span class="line">cp node-v10.15.1-linux-x64.tar.gz &#x2F;usr&#x2F;local&#x2F;</span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;</span><br><span class="line">tar zxvf node-v10.15.1-linux-x64.tar.gz </span><br><span class="line">vim &#x2F;etc&#x2F;profile</span><br><span class="line"></span><br><span class="line">#export PATH</span><br><span class="line">#set for nodejs</span><br><span class="line">export NODE_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;node-v10.15.1-linux-x64</span><br><span class="line">export PATH&#x3D;$NODE_HOME&#x2F;bin:$PATH   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3-1. 创建git用户</span><br><span class="line">adduser git</span><br><span class="line">chmod 740 &#x2F;etc&#x2F;sudoers</span><br><span class="line">vim &#x2F;etc&#x2F;sudoers</span><br><span class="line">找到以下内容</span><br><span class="line">## Allow root to run any commands anywhere</span><br><span class="line">root ALL&#x3D;(ALL) ALL</span><br><span class="line">在下面添加一行</span><br><span class="line">git ALL&#x3D;(ALL) ALL</span><br><span class="line">保存退出后改回权限</span><br><span class="line">chmod 400 &#x2F;etc&#x2F;sudoers</span><br><span class="line">随后设置Git用户的密码</span><br><span class="line">#需要root权限</span><br><span class="line">sudo passwd git</span><br><span class="line">切换至git用户，创建 ~&#x2F;.ssh 文件夹和 ~&#x2F;.ssh&#x2F;authorized_keys 文件，并赋予相应的权限</span><br><span class="line">su git</span><br><span class="line">mkdir ~&#x2F;.ssh</span><br><span class="line">vim ~&#x2F;.ssh&#x2F;authorized_keys</span><br><span class="line">#然后将电脑中执行 cat ~&#x2F;.ssh&#x2F;id_rsa.pub | pbcopy ,将公钥复制粘贴到authorized_keys</span><br><span class="line">chmod 600 ~&#x2F;.ssh&#x2F;authorzied_keys</span><br><span class="line">chmod 700 ~&#x2F;.ssh</span><br><span class="line">然后就可以执行ssh 命令测试是否可以免密登录</span><br><span class="line">ssh -v git@SERVER</span><br><span class="line">至此，Git用户添加完成</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3-3. Nginx安装和配置</span><br><span class="line">vim &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line"></span><br><span class="line">最下面加上这两行</span><br><span class="line">deb http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;mainline&#x2F;debian&#x2F; buster nginx</span><br><span class="line">deb-src http:&#x2F;&#x2F;nginx.org&#x2F;packages&#x2F;mainline&#x2F;debian&#x2F; buster nginx</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install nginx</span><br><span class="line">nginx -v</span><br><span class="line">vim &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;default.conf</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>本地Hexo程序</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">4-1：初始化Hexo博客</span><br><span class="line">首先要安装 hexo-cli，安装hexo-cli </span><br><span class="line">npm install -g hexo-cli</span><br><span class="line">然后初始化Hexo程序</span><br><span class="line">hexo init blog</span><br><span class="line">等执行成功以后安装两个插件， hexo-deployer-git 和 hexo-server ,这俩插件的作用分别是使用Git自动部署，和本地简单的服务器。</span><br><span class="line">cd blog</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hero-server</span><br><span class="line">4-2. 生成自己的第一篇文章 hello world !</span><br><span class="line">使用 hexo new &lt;文章名称&gt; 来新建文章，该命令会成成一个 .md文件放置在 sources&#x2F;_posts文件夹。</span><br><span class="line">hexo new &quot;hello Hexo&quot;</span><br><span class="line">vim sources&#x2F;_posts&#x2F;hello-hexo.md</span><br><span class="line">编辑完毕以后， 使用hexo g将 .md文件渲染成静态文件，然后启动hexo-server：</span><br><span class="line">hexo g &amp;&amp; hexo server</span><br><span class="line">现在便可以打开浏览器访问 http:&#x2F;&#x2F;localhost:4000 来查看我们的博客了！</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>自动化部署</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">5-1：服务器上建立git裸库</span><br><span class="line">创建一个裸仓库，裸仓库就是只保存git信息的Repository, 首先切换到git用户确保git用户拥有仓库所有权</span><br><span class="line">一定要加 --bare，这样才是一个裸库。</span><br><span class="line">su git</span><br><span class="line">cd ~</span><br><span class="line">git init --bare blog.git</span><br><span class="line">5-2. 使用 git-hooks 同步网站根目录</span><br><span class="line">在这里我们使用的是 post-receive这个钩子，当git有收发的时候就会调用这个钩子。 在 ~&#x2F;blog.git 裸库的 hooks文件夹中，</span><br><span class="line">新建post-receive文件。</span><br><span class="line">vim ~&#x2F;blog.git&#x2F;hooks&#x2F;post-receive</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">git --work-tree&#x3D;&#x2F;path&#x2F;to&#x2F;www --git-dir&#x3D;~&#x2F;blog.git checkout -f</span><br><span class="line">保存后，要赋予这个文件可执行权限</span><br><span class="line">chmod +x post-receive</span><br><span class="line">5-3. 配置_config.yml,完成自动化部署</span><br><span class="line">然后打开 _config.yml, 找到 deploy</span><br><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: git@SERVER:&#x2F;home&#x2F;git&#x2F;blog.git    &#x2F;&#x2F;&lt;repository url&gt;</span><br><span class="line">    branch: master            &#x2F;&#x2F;这里填写分支   [branch]</span><br><span class="line">    message: 提交的信息         &#x2F;&#x2F;自定义提交信息 (默认为 Site updated: &#123;&#123; now(&#39;YYYY-MM-DD HH:mm:ss&#39;) &#125;&#125;)</span><br><span class="line">保存后，尝试将我们刚才写的&quot;hello hexo&quot;部署到服务器</span><br><span class="line">hexo clean &amp;&amp; hexo generate --deploy</span><br><span class="line">访问服务器地址，就可以看到我们写的文章&quot;Hello hexo&quot;,以后写文章只需要：</span><br><span class="line">hexo new &quot;Blog article name&quot;</span><br><span class="line">···写文章</span><br><span class="line">hexo clean &amp;&amp; hexo generate --deploy</span><br><span class="line">博客就更新咯！~</span><br></pre></td></tr></table></figure>
-<p><strong>git push的出错处理 。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.权限的问题</span><br><span class="line">ls -la &#x2F;&#x2F;查看git库的所有者  </span><br><span class="line">报错如下：</span><br><span class="line">error occurred during unpacking on the remote end: unpack-objects abnormal exit</span><br><span class="line">因为我设置的上传账号是git，但是git库是其他账号git --bare init的，所以就………………</span><br><span class="line">解决：</span><br><span class="line">在git库目录下：</span><br><span class="line">chown -vR git *  </span><br><span class="line">补充还有就是如果目录没有写权限的话push也会报错。</span><br><span class="line">chmod -R 777 &#x2F;blog.git</span><br></pre></td></tr></table></figure>
-<p><strong>出现首页和归档403问题解决。</strong></p>
-<blockquote>
-<p>这个问题是更新了hexo出现的，之前的旧版本配置文件中home: / || home是带空格的，新版本的hexo取消了空格。 还有如果只去掉/后面的空格，在本地4000端口运行也就是hexo s命令下是没有问题的，但是在云端服务器仍然出错，||后的空格也要删除，删除后hexo clean，hexo g，hexo d，访问服务端正常。 我还出现了页码下一页、上一页乱码的问题，手动改过来就好了。</p>
-</blockquote>
-<p><strong>文章删除。</strong></p>
-<blockquote>
-<p>目录/source/_posts下删除相应的文章</p>
-</blockquote>
-
           
+博客的架构
+整个流程就是本地将 *.md 渲染成静态文件，然后Git推送到服务器的repository,服务器再通过 git-hooks 同步网站根目录。
+整个搭建流程第一部分: 服务器环境搭建，包括安装 Git 、NodeJS、Nginx配置 、创建 git 用户第二部分: 本地Hexo初始化，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/10/10/VPS%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -769,21 +778,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/10/10/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1089,6 +1092,323 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
